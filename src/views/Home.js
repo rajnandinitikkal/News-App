@@ -2,6 +2,8 @@ import React ,{useEffect,useState } from 'react'
 import './Home.css';
 import axios from 'axios';
 import NewsArticle from '../component/NewsArticle/NewsArticle';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle'
 
 export default function Home() 
 {
@@ -10,8 +12,9 @@ export default function Home()
 
     const loadNews = async () => {
       try {
-        const response = await axios.get(`https://newsapi.org/v2/everything?q=${searchQuery}&from=2023-11-12&sortBy=publishedAt&{process.env.REACT_APP_API_KEY}`);
+        const response = await axios.get(`https://newsapi.org/v2/everything?q=${searchQuery}&from=2023-11-21&sortBy=publishedAt&apiKey=f08852a686bf452ca0c6477bfece8a56`);
         
+    
         setNews(response.data.articles);
       } catch (err) {
         console.error(err);
@@ -26,8 +29,6 @@ export default function Home()
         loadNews()
     },
     )
-
-
   return (
     <>
       <div
@@ -49,6 +50,7 @@ export default function Home()
           />
         </form>
       </div>
+      <br></br>
       <div className='news-container'>
       {news.map((newsArticle)=>{
           const{author,title,description,url,urlToImage,publishedAt,content}= newsArticle;

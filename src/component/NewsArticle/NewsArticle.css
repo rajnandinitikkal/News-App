@@ -1,6 +1,6 @@
-.news-article-img{
+.news-article-image{
     height: 250px;
-    width: 420px;
+    width: 100%;
     object-fit: cover;
     display: block;
     margin: 0 auto;
